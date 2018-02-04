@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="title is-3">Complaints <% if user_signed_in? %> <%= link_to 'New Complaint', new_complaint_path, class: "button is-success"  %> <% end %></h1>
+<div class="box">
+  <% @complaints.each do |complaint| %>
+    <div class="box">
+      <% if user_signed_in? && current_user.isAdmin? %>
+        <h1 class="title is-3"><%= complaint.title %></h1>
+        <div class="content is-meduim">
+          <%= complaint.content %>
+        </div>
+      <% elsif complaint.isPublic? %>
+        <h1 class="title is-3"><%= complaint.title %></h1>
+        <div class="content is-meduim">
+          <%= complaint.content %>
+        </div>
+      <% end %>
+      <% if user_signed_in? %>
+        <%= link_to 'Show', complaint, class: "button is-primary" %>
+        <%= link_to 'Edit', edit_complaint_path(complaint), class: "button is-info" %>
+        <%= link_to 'Delete', complaint, method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-danger" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<br>

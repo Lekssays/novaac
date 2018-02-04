@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<div class="box">
+  <div class="content is-large">
+    <h2>
+      <%= @complaint.title %>
+    </h2>
+    <h2>
+      <%= @complaint.user.email %>
+    </h2>
+    <p class="content">
+    <%= @complaint.content %>
+    </p>
+  </div>
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <%= link_to 'Edit', edit_complaint_path(@complaint), class: "button is-info" %>
+        <%= link_to 'Back', complaints_path, class: "button is-primary"  %>
+      </div>
+    </div>
+  </article>
+  <br>
+  <h2 class="content is-large">Answers</h2>
+  <%= render @complaint.answers %>
+  <%= render "answers/form" %>
+</div>
+<br>

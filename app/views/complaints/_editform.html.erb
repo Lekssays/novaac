@@ -1,0 +1,25 @@
+<%= form_for(complaint) do |f| %>
+  <% if complaint.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(complaint.errors.count, "error") %> prohibited this complaint from being saved:</h2>
+
+      <ul>
+      <% complaint.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :title, class: "input is-primary", placeholder: "Title..." %>
+  </div>
+
+  <div class="field">
+    <%= f.text_area :content, class: "textarea is-primary", placeholder: "Share your thoughts..." %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Edit Complaint', :class => "button is-primary" %>
+  </div>
+<% end %>

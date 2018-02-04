@@ -1,0 +1,13 @@
+<div class="box">
+		<div class="content is-meduim">
+			<strong><%= answer.name %></strong> | <%= time_ago_in_words(answer.created_at) %> ago
+		</div>
+		<div class="content">
+			<%= answer.content %></p>
+		</div>
+	  <%= link_to 'Delete', [answer.complaint, answer],
+	  								  method: :delete,
+	  								  class: "button",
+	  								 	data: { confirm: 'Are you sure?' }, class: "button is-danger"
+	     %>
+</div>

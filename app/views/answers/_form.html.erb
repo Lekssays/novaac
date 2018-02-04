@@ -1,0 +1,13 @@
+<%= form_for([@complaint, @complaint.answers.build]) do |f| %>
+  <div class="field">
+    <%= f.text_field :name, class: "input is-primary", placeholder: "Your Name" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_area :content, class: "textarea is-primary", placeholder: "Share your thoughts..." %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Add Answer', :class => "button is-primary" %>
+  </div>
+<% end %>
